@@ -22,10 +22,15 @@ function batchRequest(item) {
   if (!f) {
     throw Error(NO_FETCH_ERROR);
   }
+  const operations = item.ast.definitions.map(i => i.operation);
   return fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ query: item.print, operations: [], variables: item.options.variables })
+    body: JSON.stringify({
+      query: item.print,
+      operations: operations ? operations : [],
+      variables: item.options.variables
+    })
   })
     .then(response => {
       return response.json();

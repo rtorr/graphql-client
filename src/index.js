@@ -76,11 +76,7 @@ export function query(q, options) {
       return queue.push(Object.assign({}, finalObj, { resolve, reject }));
     }
     return resolve(cache[b]);
-  }).catch(e => {
-    e.forEach(i => {
-      console.error(`GQ_CLIENT_ERROR ${i}`);
-    });
-  });
+  }).catch(e => e.forEach(i => console.error(`GQ_CLIENT_ERROR: ${i}`)));
 }
 
 /**

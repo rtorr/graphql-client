@@ -1,6 +1,6 @@
 {
   "name": "gql-lite",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "./lib/index.js",
   "devDependencies": {
     "autoprefixer": "6.5.1",

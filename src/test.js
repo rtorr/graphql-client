@@ -43,6 +43,17 @@ const d = `
 }
 `;
 
+const e = `
+{
+  test_one: locale(lang: "en-us") {
+    msg_3d_psn
+  }
+  test_two: locale(lang: "en-us") {
+    msg_3d_psn
+  }
+}
+`;
+
 let store = createStore(gclient);
 store.subscribe(_ => {
   console.log(store.getState().toJS());
@@ -61,6 +72,16 @@ query(c, { variables: { lang: 'en-us' }, force: false });
 query(c, { variables: { lang: 'en-us' }, force: false });
 query(c, { variables: { lang: 'en-us' }, force: false });
 query(d, { variables: { lang: 'en-us' }, force: false });
+query(
+  `{
+  test_one: locale(lang: "en-us") {
+    msg_3d_psn
+  }
+  test_two: locale(lang: "en-us") {
+    msg_3d_psn
+  }
+}`
+);
 
 setInterval(
   function() {

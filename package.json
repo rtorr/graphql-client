@@ -57,7 +57,7 @@
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "1.0.0",
     "graphql": "^0.9.1",
-    "graphql-anywhere": "^2.2.0",
+    "graphql-anywhere": "^2.2.0"
   },
   "dependencies": {
     "graphql-tag": "^1.2.4",

@@ -1,7 +1,16 @@
-import { createStore } from 'redux';
-import { gclient } from './reducer';
+// import { createStore } from 'redux';
+// import { gclient } from './reducer';
+import Gql from './gql';
+// import { query, create } from './index';
+// let store = createStore(gclient);
+// store.subscribe(_ => {
+//   console.log(store.getState().toJS());
+// });
+const graphql = new Gql({ url: 'http://localhost:4000/graphql' });
 
-import { query, create } from './index';
+graphql.store.subscribe(_ => {
+  console.log(graphql.store.getState().gclient.toJS());
+});
 
 const q = `
 {
@@ -49,40 +58,32 @@ const e = `
     msg_3d_psn
   }
   test_two: locale(lang: "en-us") {
-    msg_3d_psn
+    msg_about_ratings_psn
   }
 }
 `;
 
-let store = createStore(gclient);
-store.subscribe(_ => {
-  console.log(store.getState().toJS());
-});
-// store.dispatch({ type: 'INCREMENT' });
-// store.dispatch({ type: 'INCREMENT' });
-// store.dispatch({ type: 'DECREMENT' });
-const graphql = create('http://localhost:4000/graphql', store);
-
-query(q, { variables: {}, force: false });
-
-query(q, { variables: {}, force: false });
-
-query(b, { variables: {}, force: false });
-query(c, { variables: { lang: 'en-us' }, force: false });
-query(c, { variables: { lang: 'en-us' }, force: false });
-query(c, { variables: { lang: 'en-us' }, force: false });
-query(d, { variables: { lang: 'en-us' }, force: false });
-query(
-  `{
+const f = `
+{
   test_one: locale(lang: "en-us") {
     msg_3d_psn
   }
   test_two: locale(lang: "en-us") {
-    msg_3d_psn
+    msg_about_ratings_psn
   }
-}`
-);
+}
+`;
 
+graphql.query(q, { variables: {}, force: false });
+graphql.query(q, { variables: {}, force: false });
+graphql.query(b, { variables: {}, force: false });
+
+graphql.query(c, { variables: { lang: 'en-us' }, force: false });
+graphql.query(c, { variables: { lang: 'de-de' }, force: false });
+graphql.query(c, { variables: { lang: 'en-us' }, force: false });
+graphql.query(d);
+graphql.query(e);
+graphql.query(f);
 setInterval(
   function() {
     graphql.run();

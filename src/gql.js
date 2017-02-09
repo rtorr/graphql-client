@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import { print } from 'graphql-tag/printer';
 import { createStore, combineReducers } from 'redux';
-import { gclient } from './reducer';
+import gclient from './reducer';
 
 const NO_RUDUCER_KEY_ERROR = 'If you are using gql-lite with your own redux, please pass in the reducer key used with its store';
 const NO_FETCH_ERROR = 'You do not have fetch implmented in your plaform, please use the create method and provide a fetch method';

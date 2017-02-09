@@ -55,11 +55,11 @@
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
-    "whatwg-fetch": "1.0.0"
-  },
-  "dependencies": {
+    "whatwg-fetch": "1.0.0",
     "graphql": "^0.9.1",
     "graphql-anywhere": "^2.2.0",
+  },
+  "dependencies": {
     "graphql-tag": "^1.2.4",
     "immutable": "^3.8.1",
     "redux": "^3.6.0"
